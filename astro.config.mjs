@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
+  output: "hybrid",
   adapter: cloudflare(),
   integrations: [tailwind(), markdoc(), sitemap()]
 });

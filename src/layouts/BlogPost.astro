@@ -1,0 +1,41 @@
+---
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, date, excerpt, image } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Stefano Garavelli</title>
+  </head>
+  <body>
+    <Header />
+    <article>
+      <div class="mx-auto max-w-4xl mt-32">
+        <div class="mx-auto w-1024 h-auto">
+          <img width={1020} height={768} src={image} alt=""/>
+        </div>
+        <div class="prose">
+          <div class="title">
+            <div class="date">
+              <FormattedDate date={date} />
+            </div>
+            <h1>{title}</h1>
+            <hr />
+          </div>
+          {excerpt}
+          <slot />
+        </div>
+      </div>
+    </article>
+    <Footer />
+  </body>
+</html>
