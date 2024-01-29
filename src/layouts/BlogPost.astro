@@ -21,9 +21,9 @@ const { title, date, excerpt, image, tag } = Astro.props;
     <article>
       <div class="mt-48 mb-16 mx-auto max-w-4xl text-slate-700">
         <div class="prose">
-          <h1 class="mx-auto text-6xl font-extrabold">{title}</h1>
+          <p class="font-medium text-right text-sm"><FormattedDate date={date} /></p>
+          <h1 class="pt-8 max-w-3xl text-6xl font-extrabold">{title}</h1>
           <h2 class="mt-16 text-xl font-bold uppercase">{tag}.<span class="font-medium normal-case"> {excerpt}</span></h2>
-		      <p class="mt-8 font-medium text-right text-sm"><FormattedDate date={date} /></p>
           <div class="mx-auto w-1024 h-auto my-16">
             <img
               width={1020}
