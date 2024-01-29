@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import avatarImage from '../assets/stefano-garavelli.jpg'
 const allPosts = await Astro.glob('../content/blog/*.md');
 ---
 
@@ -35,8 +37,10 @@ const allPosts = await Astro.glob('../content/blog/*.md');
               </p>
             </div>
             <div class="relative mt-8 flex items-center gap-x-4">
-              <img
-                src={post.frontmatter.image}
+              <Image
+                src={avatarImage}
+                width={80}
+                height={80}
                 alt=""
                 class="h-10 w-10 rounded-full bg-slate-50"
               />
