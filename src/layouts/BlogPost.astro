@@ -6,7 +6,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, date, excerpt, image } = Astro.props;
+const { title, date, excerpt, image, tag } = Astro.props;
 ---
 
 <html lang="en">
@@ -19,21 +19,24 @@ const { title, date, excerpt, image } = Astro.props;
   <body>
     <Header />
     <article>
-      <div class="mx-auto max-w-4xl mt-32">
-        <div class="mx-auto w-1024 h-auto">
-          <img width={1020} height={768} src={image} alt=""/>
-        </div>
+      <div class="mt-48 mb-16 mx-auto max-w-4xl text-slate-700">
         <div class="prose">
-          <div class="title">
-            <div class="date">
-              <FormattedDate date={date} />
-            </div>
-            <h1>{title}</h1>
-            <hr />
+          <h1 class="mx-auto text-6xl font-extrabold">{title}</h1>
+          <h2 class="mt-16 text-xl font-bold uppercase">{tag}.<span class="font-medium normal-case"> {excerpt}</span></h2>
+		      <p class="mt-8 font-medium text-right text-sm"><FormattedDate date={date} /></p>
+          <div class="mx-auto w-1024 h-auto my-16">
+            <img
+              width={1020}
+              height={768}
+              src={image}
+              alt={title}
+              class="w-auto h-auto"
+            />
           </div>
-          {excerpt}
-          <slot />
         </div>
+        <div class="text-md font-regular leading-7">
+        <slot/>
+      </div>
       </div>
     </article>
     <Footer />

@@ -2,7 +2,7 @@
 title: "Product backlog estimation and refinement with Story Points"
 date: "2024-01-17"
 tag: "Product Management"
-image: "/stefano-garavelli.jpg"
+image: "/photo-1541960071727-c531398e7494.jpeg"
 excerpt: "Story Points can help making better user story estimates than time-based estimation. Agile sprint planning benefits from estimating risk, uncertainty and complexity."
 ---
 
