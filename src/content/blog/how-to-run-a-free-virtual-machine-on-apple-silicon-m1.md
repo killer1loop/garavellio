@@ -11,7 +11,7 @@ Apple Silicon was introduced a few years back and I had the opportunity of testi
 
 Despite the obvious downside of not being able to run any Intel X86 operating system as they don't even decently work using virtualization, running free virtual machines on Apple Silicon M1 or M2 is possible, and easy.
 
-UTM is a free virtual machine management tool that employs Apple's Hypervisor virtualization framework to run ARM64 operating systems on Apple Silicon at near native speeds.
+[UTM](https://mac.getutm.app/?ref=garavelli.io) is a free virtual machine management tool that employs Apple's Hypervisor virtualization framework to run ARM64 operating systems on Apple Silicon at near native speeds.
 
 UTM can be downloaded from the AppStore for automatic installation and upgrades, or downloaded from the UTM website. It is free from UTM's website but it's a paid app on the AppStore which is a convenient way to put direct support into its development.
 
