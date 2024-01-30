@@ -22,7 +22,7 @@ The connection to Clickhouse databases in Metabase is very simple and only requi
 Clickhouse offers an interesting feature for compatibility with other database engines. The MySQL engine connects to any MySQL table directly and performs the query as any MySQL client would do. This is especially important when a client connects to Clickhouse and some of the data has to be collected in real time from MySQL.
 
 An example of Clickhouse MySQL engine table creation query is:
-
+```
 CREATE TABLE mysql_data
 (
 `entity_id` UInt64,
@@ -32,6 +32,7 @@ CREATE TABLE mysql_data
 `at` DateTime
 )
 ENGINE = MySQL('127.0.0.1:3306', 'db', 'table', 'usr', 'pwd')
+```
 In terms of performance – this method is only viable for simple queries and smaller data sets. The querying performance is still affected by the underlying MySQL performance as each query is performed on MySQL by Clickhouse in real time.
 
 Import data from MySQL in Clickhouse
@@ -43,7 +44,9 @@ Create a MergeTree table in Clickhouse using the same schema as the MySQL origin
 Insert all the origin MySQL data into the Clickhouse table
 Create a version of the same Clickhouse query to only insert the newly updated records
 Schedule the data import with the tool of your choice. A cron to execute the query using the Clickhouse client is a valid option.
-Create the MySQL engine table in Clichouse
+
+## Create the MySQL engine table in Clichouse
+```
 CREATE TABLE mysql_data
 (
 `entity_id` UInt64,
@@ -69,6 +72,8 @@ Insert data in the MergeTree table
 INSERT INTO data SELECT * FROM mysql_data
 Query to insert newer data incrementally
 INSERT INTO data SELECT * FROM mysql_data WHERE id > lastid
+```
+
 This assumes that lastid is your Clickhouse key field newest value.
 
 Metabase can now be used to JOIN large tables in large data sets and perform well with years worth of web analytics data from platforms like Matomo.

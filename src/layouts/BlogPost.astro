@@ -9,7 +9,7 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, date, excerpt, image, tag } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="[&>a]:underline">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -31,11 +31,11 @@ const { title, date, excerpt, image, tag } = Astro.props;
               height={768}
               src={image}
               alt={title}
-              class="w-auto h-auto"
+              class="w-auto h-auto mx-auto"
             />
           </div>
         </div>
-        <div class="text-lg font-regular leading-7 [&>h2]:text-3xl [&>h2]:mt-8 [&>h2]:font-bold [&>h3]:text-xl [&>h3]:mt-8 [&>h3]:font-bold [&>p]:mt-4">
+        <div class="text-lg font-regular leading-7 [&>h2]:text-3xl [&>h2]:mt-8 [&>p>a]:text-blue-600 [&>p>a]:underline [&>h2]:font-bold [&>h3]:text-xl [&>h3]:mt-8 [&>h3]:font-bold [&>p]:mt-4 [&>blockquote]:bg-gray-200 [&>blockquote]:p-4 [&>blockquote]:my-4 [&>blockquote]:text-lg [&>pre]:my-4 [&>cpre]:bg-gray-300 [&>pre]:p-4">
         <slot />
       </div>
       </div>
