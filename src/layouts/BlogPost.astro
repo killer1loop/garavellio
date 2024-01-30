@@ -14,7 +14,8 @@ const { title, date, excerpt, image, tag } = Astro.props;
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <title>Stefano Garavelli</title>
+    <meta name="description" content={excerpt} />
+    <title>{title} | Stefano Garavelli</title>
   </head>
   <body>
     <Header />
@@ -34,8 +35,8 @@ const { title, date, excerpt, image, tag } = Astro.props;
             />
           </div>
         </div>
-        <div class="text-md font-regular leading-7">
-        <slot/>
+        <div class="text-lg font-regular leading-7 [&>h2]:text-3xl [&>h2]:mt-8 [&>h2]:font-bold [&>h3]:text-xl [&>h3]:mt-8 [&>h3]:font-bold [&>p]:mt-4">
+        <slot />
       </div>
       </div>
     </article>
