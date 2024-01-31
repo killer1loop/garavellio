@@ -3,6 +3,7 @@ import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
+import CommonHead from "../components/commonHead.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -11,12 +12,10 @@ const { title, date, excerpt, image, tag } = Astro.props;
 
 <html lang="en" class="[&>a]:underline">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
     <meta name="description" content={excerpt} />
     <title>{title} | Stefano Garavelli</title>
   </head>
+  <CommonHead />
   <body>
     <Header />
     <article>
