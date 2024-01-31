@@ -20,7 +20,7 @@ const { title, date, excerpt, image, tag } = Astro.props;
   <body>
     <Header />
     <article>
-      <div class="mt-48 mb-16 mx-auto max-w-4xl text-slate-700">
+      <div class="lg:px-0 px-6 mt-48 mb-16 mx-auto max-w-3xl text-slate-700">
         <div class="prose">
           <p class="font-medium text-right text-sm"><FormattedDate date={date} /></p>
           <h1 class="pt-8 max-w-3xl text-6xl font-extrabold">{title}</h1>

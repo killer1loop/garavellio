@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import avatarImage from "../assets/stefano-garavelli.jpg";
+import backgroundImage from "../assets/fullbackground.jpg";
 ---
 
 <div class="bg-white">
@@ -60,15 +60,17 @@ import avatarImage from "../assets/stefano-garavelli.jpg";
             >
           </div>
         </div>
+        <div class="relative isolate overflow-hidden pt-14">
         <Image
-          src={avatarImage}
-          width={268}
-          height={402}
+          src={backgroundImage}
+          width={420}
+          height={630}
           decoding="async"
           loading="lazy"
           alt=""
           class="mx-auto lg:mx-16 aspect-[2/3] h-auto w-auto rounded-md object-contain xl:row-span-2 xl:row-end-2"
         />
+      </div>
       </div>
       <div
         class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32"

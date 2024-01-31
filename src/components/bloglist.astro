@@ -9,7 +9,7 @@ allPosts.sort(
 
 <div class="bg-white">
   <section id="blog">
-    <div class="mx-auto max-w-6xl pb-32 px-8 lg:px-0">
+    <div class="mx-auto max-w-6xl pt-16 pb-32 px-8 lg:px-0">
       <div class="mx-auto max-w-4xl">
         <h2
           class="text-4xl font-bold tracking-tight text-slate-600 sm:text-4xl"
@@ -27,8 +27,8 @@ allPosts.sort(
             allPosts.map((post) => (
               <>
                 <article class="flex max-w-4xl flex-col items-start justify-between">
-                  <div class="grid grid-cols-4">
-                    <div class="col-span-1">
+                  <div class="grid lg:grid-cols-4 grid-cols-1">
+                    <div class="col-span-1 lg:block hidden">
                       <a href={post.frontmatter.permalink}>
                         <img
                           width={200}
