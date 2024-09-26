@@ -1,20 +1,52 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../layouts/BlogPost.astro';
+import directus from "../lib/directus";
+import { readItems } from "@directus/sdk";
+import CommonHead from "../components/commonHead.astro";
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const pages = await directus.request(readItems("blog"));
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: page,
+  }));
 }
-type Props = CollectionEntry<'blog'>;
 
-const post = Astro.props;
-const { Content } = await post.render();
+const page = Astro.props;
+
 ---
 
-<BlogPost {...post.data}>
-	<Content />
-</BlogPost>
+<html lang="en" class="[&>a]:underline">
+  <head>
+    <meta name="description" content={page.excerpt} />
+    <title>{page.title} | Stefano Garavelli</title>
+  </head>
+  <CommonHead />
+  <body>
+    <Header />
+    <article>
+      <div class="lg:px-0 px-6 mt-48 mb-16 mx-auto max-w-3xl text-slate-700">
+        <div class="prose">
+          <p class="font-medium text-right text-sm">{page.published_date}</p>
+          <h1 class="pt-8 max-w-3xl text-6xl font-extrabold">{page.title}</h1>
+          <h2 class="mt-16 text-xl font-bold uppercase">{page.tag}.<span class="font-medium normal-case"> {page.excerpt}</span></h2>
+          <div class="mx-auto w-1024 h-auto my-16">
+            <img
+              width={1020}
+              height={768}
+              src={`https://directus.backend.garavelli.io/assets/${page.image}`}
+              alt={page.title}
+              class="w-auto h-auto mx-auto"
+            />
+          </div>
+        </div>
+        <div>
+        <slot />
+      </div>
+      <div set:html={page.content} class="text-lg font-regular leading-7 [&>h2]:text-3xl [&>h2]:mt-8 [&>p>a]:text-blue-600 [&>p>a]:underline [&>h2]:font-bold [&>h3]:text-xl [&>h3]:mt-8 [&>h3]:font-bold [&>p]:mt-4 [&>blockquote]:bg-gray-200 [&>blockquote]:p-4 [&>blockquote]:my-4 [&>blockquote]:text-lg [&>pre]:my-4 [&>cpre]:bg-gray-300 [&>pre]:p-4"></div>
+      </div>
+    </article>
+    <Footer />
+  </body>
+</html>
