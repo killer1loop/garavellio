@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "hybrid",
+  output: "server",
   adapter: cloudflare(),
   site: 'https://garavelli.io',
   integrations: [tailwind(), markdoc(), sitemap()]
