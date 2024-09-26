@@ -7,14 +7,14 @@ import Header from "../components/header.astro";
 
 export const prerender = true;
 
+const post = Astro.props;
+
 export async function getStaticPaths() {
   const posts = await directus.request(readItems("blog", {
     fields: ['*'],
   }));
   return posts.map((post) => ({ params: { slug: post.slug }, props: post }));
 }
-
-const post = Astro.props;
 
 ---
 
