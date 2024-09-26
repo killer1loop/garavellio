@@ -1,6 +1,6 @@
 import { createDirectus, rest, } from '@directus/sdk';
 
-type articles = {
+type Post = {
   title: string;
   date_created: string;
   tag: string;
@@ -13,7 +13,7 @@ type articles = {
 }
 
 type Schema = {
-  article: articles[];
+  blog: Post[];
 }
 
 const directus = createDirectus<Schema>('https://directus.backend.garavelli.io/').with(rest());
