@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.4.1",
     "@astrojs/cloudflare": "^11.1.0",
     "@astrojs/markdoc": "^0.8.3",
+    "@astrojs/netlify": "^5.5.3",
     "@astrojs/react": "^3.6.2",
     "@astrojs/sitemap": "^3.1.6",
     "@astrojs/tailwind": "^5.1.1",
