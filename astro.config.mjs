@@ -7,9 +7,10 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: cloudflare({
-    imageService: 'cloudflare'
-}),
+  image: {
+    service: passthroughImageService()
+  },
+  adapter: cloudflare(),
   site: 'https://garavelli.io',
   integrations: [tailwind(), markdoc(), sitemap()]
 });

@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import avatarImage from "../assets/stefano-garavelli.jpg";
 import directus from "../lib/directus";
 import { readItems } from "@directus/sdk";
 
@@ -79,7 +78,7 @@ const posts = await directus.request(
                       </div>
                       <div class="relative mt-8 flex items-center gap-x-4">
                         <Image
-                          src={avatarImage}
+                          src='https://directus.backend.garavelli.io/assets/0e706a8a-c5ab-47b2-bdf0-af9dedd6922a.jpg'
                           width={80}
                           height={80}
                           alt=""
